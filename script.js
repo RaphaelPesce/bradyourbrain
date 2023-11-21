@@ -16,12 +16,12 @@ document.getElementById('playButton').addEventListener('click', function () {
 // Fonction pour démarrer un décompte avant de jouer le son
 function startPreCountdown(duration) {
     let time = duration;
-    preCountdownTimer.textContent = `Le son va commencer dans : ${time} secondes`;
+    preCountdownTimer.textContent = `Time : ${time} secondes`;
     preCountdownTimer.style.display = 'block';
 
     const interval = setInterval(function () {
         time--;
-        preCountdownTimer.textContent = `Le son va commencer dans : ${time} secondes`;
+        preCountdownTimer.textContent = `time : ${time} secondes`;
 
         if (time <= 0) {
             clearInterval(interval);
