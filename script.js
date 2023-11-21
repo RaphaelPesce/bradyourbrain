@@ -1,9 +1,17 @@
 // Liste de vos fichiers audio
-const audioList = [{ src: 'netflix.mp3', message: 'Netflix' },
-{ src: 'mac.mp3', message: 'Mac' },
-{ src: 'cocacola.mp3', message: 'Coca Cola or Pepsi' },
-{ src: 'sncf.mp3', message: 'SNCF' },
-{ src: 'ikea.mp3', message: 'IKEA' }, { src: 'mcdonalds.mp3', message: "Mc Donald 's" }, { src: 'samsung.mp3', message: 'Samsung' }, { src: 'sony.mp3', message: 'Sony' }];
+const audioList = [
+    { src: 'netflix.mp3', message: 'Netflix : Difficulty 1' },
+    { src: 'mac.mp3', message: 'Mac : Difficulty 1' },
+    { src: 'cocacola.mp3', message: 'Coca Cola or Pepsi : Difficulty 3' },
+    { src: 'sncf.mp3', message: 'SNCF : Difficulty 1' },
+    { src: 'ikea.mp3', message: 'IKEA : Difficulty 2' },
+    { src: 'mcdonalds.mp3', message: "Mc Donald 's : Difficulty 1" },
+    { src: 'samsung.mp3', message: 'Samsung : Difficulty 3' },
+    { src: 'sony.mp3', message: 'Sony : Difficulty 2' },
+    { src: 'intel.mp3', message: 'Intel : Difficulty 1' },
+    { src: 'toyota.mp3', message: 'Toyota : Difficulty 3' },
+    { src: 'decathlon.mp3', message: 'Decathlon : Difficulty 2' }
+];
 
 // Récupération des éléments du DOM
 const audioPlayer = document.getElementById('audioPlayer');
