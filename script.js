@@ -1,5 +1,9 @@
 // Liste de vos fichiers audio
-const audioList = [{ src: 'netflix.mp3', message: 'Netflix' }];
+const audioList = [{ src: 'netflix.mp3', message: 'Netflix' },
+{ src: 'mac.mp3', message: 'Mac' },
+{ src: 'cocacola.mp3', message: 'Coca Cola or Pepsi' },
+{ src: 'sncf.mp3', message: 'SNCF' },
+{ src: 'ikea.mp3', message: 'IKEA' }, { src: 'mcdonalds.mp3', message: "Mc Donald 's" }, { src: 'samsung.mp3', message: 'Samsung' }, { src: 'sony.mp3', message: 'Sony' }];
 
 // Récupération des éléments du DOM
 const audioPlayer = document.getElementById('audioPlayer');
@@ -10,7 +14,7 @@ const messageElement = document.getElementById('endMessage'); // Élément pour 
 
 // Ajout d'un écouteur d'événement sur le bouton pour démarrer la lecture
 document.getElementById('playButton').addEventListener('click', function () {
-    startPreCountdown(5); // Décompte de 5 secondes avant de jouer le son
+    startPreCountdown(3); // Décompte de 5 secondes avant de jouer le son
 });
 
 // Fonction pour démarrer un décompte avant de jouer le son
