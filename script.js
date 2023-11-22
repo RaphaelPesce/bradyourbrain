@@ -55,7 +55,7 @@ function playRandomSound() {
 
     // Lorsque le son se termine, lancer le décompte de fin
     audioPlayer.onended = function () {
-        startPostCountdown(5, selectedSound.message); // Lancer le décompte après la fin du son
+        startPostCountdown(10, selectedSound.message); // Lancer le décompte après la fin du son
     };
 }
 
