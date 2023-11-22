@@ -1,15 +1,15 @@
 // Liste de vos fichiers audio
 const audioList = [
-    { src: 'sounds/netflix.mp3', message: 'Netflix : Difficulty 1' },
-    { src: 'sounds/mac.mp3', message: 'Mac : Difficulty 1' },
-    { src: 'sounds/sncf.mp3', message: 'SNCF : Difficulty 1' },
-    { src: 'sounds/ikea.mp3', message: 'IKEA : Difficulty 2' },
-    { src: 'sounds/mcdonalds.mp3', message: "Mc Donald's : Difficulty 1" },
-    { src: 'sounds/samsung.mp3', message: 'Samsung : Difficulty 3' },
-    { src: 'sounds/sony.mp3', message: 'Sony : Difficulty 2' },
-    { src: 'sounds/intel.mp3', message: 'Intel : Difficulty 1' },
-    { src: 'sounds/toyota.mp3', message: 'Toyota : Difficulty 3' },
-    { src: 'sounds/decathlon.mp3', message: 'Decathlon : Difficulty 2' }
+    { src: 'sounds/netflix.mp3', message: 'Netflix', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/mac.mp3', message: 'Apple', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/sncf.mp3', message: 'SNCF', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/ikea.mp3', message: 'IKEA', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/mcdonalds.mp3', message: "Mc Donald's", difficulty: 'Easy', points: '1' },
+    { src: 'sounds/samsung.mp3', message: 'Samsung', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/sony.mp3', message: 'Sony', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/intel.mp3', message: 'Intel', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/toyota.mp3', message: 'Toyota', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/decathlon.mp3', message: 'Decathlon', difficulty: 'Easy', points: '1' }
 ];
 
 // Récupération des éléments du DOM
@@ -51,6 +51,8 @@ function startPreCountdown(duration) {
 function playRandomSound() {
     const randomIndex = Math.floor(Math.random() * audioList.length);
     lastPlayedSound = audioList[randomIndex];
+    document.getElementById('difficulty').textContent = `Difficulty: ${lastPlayedSound.difficulty}`;
+    document.getElementById('points').textContent = `Points: ${lastPlayedSound.points}`;
     playSound(lastPlayedSound);
 
     audioPlayer.onended = function () {

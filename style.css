@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: scriptorama markdown JF;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +7,23 @@ body {
     margin: 0;
     background-color: #f4f4f4;
 }
+
+.difficulty {
+    position: absolute;
+    top: 210px;
+    left: 802px;
+    font-size: 18px;
+    color: #333;
+}
+
+.points {
+    position: absolute;
+    top: 210px;
+    left: 1050px;
+    font-size: 18px;
+    color: #333;
+}
+
 
 .container {
     display: flex;
@@ -24,6 +41,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.spacer {
+    height: 210px;
 }
 
 #playButton {
