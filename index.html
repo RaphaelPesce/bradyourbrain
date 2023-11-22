@@ -9,17 +9,30 @@
 </head>
 
 <body>
+
     <div class="container">
-        <div id="difficulty" class="difficulty">Difficulty: </div>
-        <div id="points" class="points">Points: </div>
-        <div class="spacer"></div>
-        <button id="playButton">Play sound</button>
-        <button id="replayButton">Replay</button>
-        <button id="showMessageButton" disabled>Show answer</button>
-        <audio id="audioPlayer"></audio>
-        <div id="preCountdownTimer" style="display:none;"></div>
-        <div id="countdownTimer" style="display:none;">Time: <span id="timer"></span> seconds</div>
-        <div id="endMessage" style="display:none;"></div>
+        <div class="top-info">
+            <div id="difficulty" class="difficulty">Difficulty: </div>
+            <div id="points" class="points">Points: </div>
+        </div>
+
+        <div class="anim">
+            <img src="anim/speaker.gif">
+        </div>
+
+        <div class="buttons-container">
+            <button id="playButton">Play sound</button>
+            <button id="replayButton">Replay</button>
+            <button id="showMessageButton" disabled>Show answer</button>
+        </div>
+
+        <div class="messages-container">
+            <audio id="audioPlayer"></audio>
+            <div id="preCountdownTimer" style="display:none;"></div>
+            <div id="countdownTimer" style="display:none;">Time: <span id="timer"></span> seconds</div>
+            <div id="endMessage" style="display:none;"></div>
+        </div>
+
     </div>
 
     <script src="script.js"></script>

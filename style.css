@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'font';
+    src: url(‘/font/font.ttf’) format(‘truetype’)
+}
+
 body {
-    font-family: scriptorama markdown JF;
+    font-family: 'font', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,27 +13,11 @@ body {
     background-color: #f4f4f4;
 }
 
-.difficulty {
-    position: absolute;
-    top: 210px;
-    left: 802px;
-    font-size: 18px;
-    color: #333;
-}
-
-.points {
-    position: absolute;
-    top: 210px;
-    left: 1050px;
-    font-size: 18px;
-    color: #333;
-}
-
-
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Modifié pour aligner le contenu en haut */
     align-items: center;
     background-color: white;
     width: 300px;
@@ -43,41 +32,77 @@ body {
     background-repeat: no-repeat;
 }
 
-.spacer {
-    height: 210px;
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    /* Ajustez selon vos besoins */
 }
 
-#playButton {
+.difficulty,
+.points {
+    font-size: 18px;
+    color: #333;
+}
+
+.anim {
+    width: 150px;
+    /* Ajustez la largeur selon vos besoins */
+    height: auto;
+    /* Pour conserver les proportions de l'image */
+    display: flex;
+    justify-content: center;
+    /* Centrer l'image dans le conteneur */
+}
+
+.anim img {
+    width: 100%;
+    /* L'image prendra la largeur du conteneur */
+    height: auto;
+    /* Pour conserver les proportions de l'image */
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    /* Espace fixe entre les boutons et les messages */
+}
+
+#playButton,
+#replayButton,
+#showMessageButton {
     background-color: #8BBF1B;
+    /* Couleur pour Play Button */
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    /* Espacement entre les boutons */
 }
 
+/* Styles spécifiques pour Replay et Show Message Buttons */
 #replayButton {
     background-color: #D95323;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 20px;
+    /* Couleur pour Replay Button */
 }
 
 #showMessageButton {
     background-color: #3DADF2;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 20px;
+    /* Couleur pour Show Message Button */
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* S'assurer que le container prend toute la largeur */
 }
 
 #preCountdownTimer,
@@ -90,4 +115,101 @@ body {
 
 audio {
     margin-top: 20px;
+}
+
+
+@media (max-width: 600px) {
+    body {
+        font-family: scriptorama markdown JF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+
+    .difficulty {
+        position: absolute;
+        top: 210px;
+        left: 802px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .points {
+        position: absolute;
+        top: 210px;
+        left: 1050px;
+        font-size: 18px;
+        color: #333;
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 300px;
+        height: 490px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        background-image: url('Card.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .spacer {
+        height: 210px;
+    }
+
+    #playButton {
+        background-color: #8BBF1B;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    #replayButton {
+        background-color: #D95323;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    #showMessageButton {
+        background-color: #3DADF2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    #preCountdownTimer,
+    #countdownTimer,
+    #endMessage {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    audio {
+        margin-top: 20px;
+    }
 }
