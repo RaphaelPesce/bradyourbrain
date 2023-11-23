@@ -1,10 +1,7 @@
-@font-face {
-    font-family: 'font';
-    src: url(‘/font/font.ttf’) format(‘truetype’)
-}
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 body {
-    font-family: 'font', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     display: flex;
     justify-content: center;
     align-items: center;

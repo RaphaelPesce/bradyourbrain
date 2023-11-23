@@ -22,24 +22,34 @@ const playButton = document.getElementById('playButton');
 const replayButton = document.getElementById('replayButton');
 const showMessageButton = document.getElementById('showMessageButton');
 
+// Variable pour suivre le dernier son joué et l'état du décompte
 let lastPlayedSound = null;
+let countdownStarted = false;
 
+// Gestionnaire d'événements pour le bouton Play
 playButton.addEventListener('click', function () {
+    // Lancer un décompte avant de jouer le son
     startPreCountdown(2);
+    // Désactiver le bouton Play pendant le décompte
     this.disabled = true;
+    // Désactiver le bouton Show Answer jusqu'à la fin du décompte
     showMessageButton.disabled = true;
+    // Cacher le message précédent
     messageElement.style.display = 'none';
 });
 
+// Fonction pour démarrer un décompte avant de jouer le son
 function startPreCountdown(duration) {
     let time = duration;
-    preCountdownTimer.textContent = `The sound starts in: ${time} seconds`;
+    preCountdownTimer.textContent = `The sound starts in : ${time} seconds`;
     preCountdownTimer.style.display = 'block';
 
+    // Mise en place d'un intervalle pour le décompte
     const interval = setInterval(function () {
         time--;
-        preCountdownTimer.textContent = `The sound starts in: ${time} seconds`;
+        preCountdownTimer.textContent = `The sound starts in : ${time} seconds`;
 
+        // Lorsque le décompte atteint 0, jouer le son
         if (time <= 0) {
             clearInterval(interval);
             preCountdownTimer.style.display = 'none';
@@ -48,47 +58,71 @@ function startPreCountdown(duration) {
     }, 1000);
 }
 
+// Fonction pour choisir et jouer un son aléatoire
 function playRandomSound() {
+    // Sélection aléatoire d'un son dans la liste
     const randomIndex = Math.floor(Math.random() * audioList.length);
     lastPlayedSound = audioList[randomIndex];
+    // Mise à jour des informations de difficulté et de points
     document.getElementById('difficulty').textContent = `Difficulty: ${lastPlayedSound.difficulty}`;
     document.getElementById('points').textContent = `Points: ${lastPlayedSound.points}`;
+    // Jouer le son sélectionné
     playSound(lastPlayedSound);
 
+    // Réinitialiser l'indicateur de décompte pour permettre un nouveau décompte
+    countdownStarted = false;
+
+    // Définir une action lorsque le son se termine
     audioPlayer.onended = function () {
-        startPostCountdown(15, lastPlayedSound.message);
+        // Lancer un décompte après la fin du son, si ce n'est pas une relecture
+        if (!countdownStarted) {
+            startPostCountdown(15, lastPlayedSound.message);
+        }
     };
 }
 
+// Fonction pour jouer un son
 function playSound(sound) {
+    // Définir la source et jouer l'audio
     audioPlayer.src = sound.src;
     audioPlayer.play();
 }
 
+// Fonction pour démarrer un décompte après la fin de la lecture du son
 function startPostCountdown(duration, message) {
-    let time = duration;
-    countdownTimer.style.display = 'block';
-    timerElement.textContent = time;
-
-    const interval = setInterval(function () {
-        time--;
+    // Lancer le décompte seulement s'il n'a pas déjà commencé
+    if (!countdownStarted) {
+        let time = duration;
+        countdownTimer.style.display = 'block';
         timerElement.textContent = time;
 
-        if (time <= 0) {
-            clearInterval(interval);
-            countdownTimer.style.display = 'none';
-            showMessageButton.disabled = false;
-        }
-    }, 1000);
+        // Mise en place d'un intervalle pour le décompte
+        const interval = setInterval(function () {
+            time--;
+            timerElement.textContent = time;
 
+            // À la fin du décompte, afficher le bouton Show Answer
+            if (time <= 0) {
+                clearInterval(interval);
+                countdownTimer.style.display = 'none';
+                showMessageButton.disabled = false;
+                countdownStarted = true; // Marquer le décompte comme terminé
+            }
+        }, 1000);
+    }
+
+    // Afficher le message lorsque le bouton Show Answer est cliqué
     showMessageButton.onclick = function () {
         messageElement.textContent = message;
         messageElement.style.display = 'block';
+        // Réactiver le bouton Play pour un nouveau cycle
         playButton.disabled = false;
     };
 }
 
+// Gestionnaire d'événements pour le bouton Replay
 replayButton.addEventListener('click', function () {
+    // Rejouer le dernier son si disponible
     if (lastPlayedSound) {
         playSound(lastPlayedSound);
     }
