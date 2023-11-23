@@ -17,6 +17,14 @@ const audioList = [
     { src: 'sounds/renault.mp3', message: 'Renault', difficulty: 'Medium', points: '2' },
     { src: 'sounds/sfr.mp3', message: 'SFR', difficulty: 'Medium', points: '2' },
     { src: 'sounds/ratp.mp3', message: 'RATP', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/xbox.mp3', message: 'Xbox', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/dreamworks.mp3', message: 'Dreamworks', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/20thcentury.mp3', message: '20th Century Fox', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/messenger.mp3', message: 'Messenger', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/disney.mp3', message: 'Disney', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/haribo.mp3', message: 'Haribo', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/playstation.mp3', message: 'Playstation', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/rtl.mp3', message: 'RTL', difficulty: 'Medium', points: '2' },
     { src: 'sounds/decathlon.mp3', message: 'Decathlon', difficulty: 'Easy', points: '1' }
 ];
 
