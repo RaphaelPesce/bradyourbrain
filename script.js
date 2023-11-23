@@ -1,14 +1,22 @@
 // Liste de vos fichiers audio
 const audioList = [
     { src: 'sounds/netflix.mp3', message: 'Netflix', difficulty: 'Easy', points: '1' },
-    { src: 'sounds/mac.mp3', message: 'Apple', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/mac.mp3', message: 'Apple', difficulty: 'Medium', points: '2' },
     { src: 'sounds/sncf.mp3', message: 'SNCF', difficulty: 'Easy', points: '1' },
-    { src: 'sounds/ikea.mp3', message: 'IKEA', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/ikea.mp3', message: 'IKEA', difficulty: 'Hard', points: '3' },
     { src: 'sounds/mcdonalds.mp3', message: "Mc Donald's", difficulty: 'Easy', points: '1' },
-    { src: 'sounds/samsung.mp3', message: 'Samsung', difficulty: 'Easy', points: '1' },
-    { src: 'sounds/sony.mp3', message: 'Sony', difficulty: 'Easy', points: '1' },
-    { src: 'sounds/intel.mp3', message: 'Intel', difficulty: 'Easy', points: '1' },
-    { src: 'sounds/toyota.mp3', message: 'Toyota', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/samsung.mp3', message: 'Samsung', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/sony.mp3', message: 'Sony', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/intel.mp3', message: 'Intel', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/toyota.mp3', message: 'Toyota', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/nvidia.mp3', message: 'Nvidia', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/gilette.mp3', message: 'Gilette', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/soda.mp3', message: 'Coca Cola or Pepsi', difficulty: 'Hard', points: '3' },
+    { src: 'sounds/mastercard.mp3', message: 'Mastercard', difficulty: 'Easy', points: '1' },
+    { src: 'sounds/lg.mp3', message: 'LG', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/renault.mp3', message: 'Renault', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/sfr.mp3', message: 'SFR', difficulty: 'Medium', points: '2' },
+    { src: 'sounds/ratp.mp3', message: 'RATP', difficulty: 'Hard', points: '3' },
     { src: 'sounds/decathlon.mp3', message: 'Decathlon', difficulty: 'Easy', points: '1' }
 ];
 
