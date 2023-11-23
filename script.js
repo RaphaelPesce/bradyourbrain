@@ -33,9 +33,16 @@ const showMessageButton = document.getElementById('showMessageButton');
 // Variables pour suivre le dernier son joué et l'état du décompte
 let lastPlayedSound = null;
 let countdownStarted = false;
+let countdownInterval = null; // Variable pour gérer l'intervalle de décompte
 
 // Gestionnaire d'événements pour le bouton Play
 playButton.addEventListener('click', function () {
+    // Réinitialiser et démarrer un nouveau cycle
+    countdownStarted = false;
+    if (countdownInterval) {
+        clearInterval(countdownInterval); // Arrêter tout décompte en cours
+        countdownInterval = null;
+    }
     startPreCountdown(2);
     this.disabled = true;
     showMessageButton.disabled = true;
@@ -62,10 +69,13 @@ function startPreCountdown(duration) {
 
 // Fonction pour choisir et jouer un son aléatoire
 function playRandomSound() {
+    // Sélection aléatoire d'un son dans la liste
     const randomIndex = Math.floor(Math.random() * audioList.length);
     lastPlayedSound = audioList[randomIndex];
+    // Mise à jour des informations de difficulté et de points
     document.getElementById('difficulty').textContent = `Difficulty: ${lastPlayedSound.difficulty}`;
     document.getElementById('points').textContent = `Points: ${lastPlayedSound.points}`;
+    // Jouer le son sélectionné
     playSound(lastPlayedSound, false);
 }
 
@@ -74,10 +84,12 @@ function playSound(sound, isReplay) {
     audioPlayer.src = sound.src;
     audioPlayer.play();
 
-    // Gérer le décompte uniquement pour la première lecture du son
+    // Lancer le décompte après la première lecture
     if (!isReplay && !countdownStarted) {
         audioPlayer.onended = function () {
-            startPostCountdown(15, lastPlayedSound.message);
+            if (!countdownStarted) {
+                startPostCountdown(15, lastPlayedSound.message);
+            }
         };
     }
 }
@@ -88,16 +100,18 @@ function startPostCountdown(duration, message) {
         let time = duration;
         countdownTimer.style.display = 'block';
         timerElement.textContent = time;
-        countdownStarted = true; // Indique que le décompte est en cours
+        countdownStarted = true;
 
-        const interval = setInterval(function () {
+        countdownInterval = setInterval(function () {
             time--;
             timerElement.textContent = time;
 
             if (time <= 0) {
-                clearInterval(interval);
+                clearInterval(countdownInterval);
+                countdownInterval = null;
                 countdownTimer.style.display = 'none';
                 showMessageButton.disabled = false;
+                countdownStarted = false; // Permet de relancer le décompte pour un nouveau cycle
             }
         }, 1000);
     }
@@ -113,6 +127,6 @@ function startPostCountdown(duration, message) {
 // Gestionnaire d'événements pour le bouton Replay
 replayButton.addEventListener('click', function () {
     if (lastPlayedSound) {
-        playSound(lastPlayedSound, true); // Indique qu'il s'agit d'un Replay
+        playSound(lastPlayedSound, true); // Rejouer le son sans relancer le décompte
     }
 });
